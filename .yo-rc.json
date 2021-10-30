@@ -41,8 +41,8 @@
     "creationTimestamp": 1635630948476,
     "jwtSecretKey": "OGNiNDQ1ODhhZmM5NWVkNGJkY2ExODc2YTkzYTZkMjNmNTc0ZTQ3OWRjMGMxMjVlYzA4YjM1NGE3MWYwMTJkODgwZTZiMGNjYzBkNGJiOTI1NmM4NTRjOGZlMTUyZjY0YjI0M2U3YTAxNGNhMmQ0M2ZjOTZmYTliM2UyMjFlMjQ=",
     "devServerPort": 4200,
-    "clientTheme": "none",
-    "clientThemeVariant": "",
+    "clientTheme": "lumen",
+    "clientThemeVariant": "primary",
     "reactive": false,
     "enableGradleEnterprise": false
   },
