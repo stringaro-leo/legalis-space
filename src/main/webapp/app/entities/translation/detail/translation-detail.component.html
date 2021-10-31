@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="translation">
+      <h2 data-cy="translationDetailsHeading"><span jhiTranslate="legalisSpaceApp.translation.detail.title">Translation</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ translation.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="legalisSpaceApp.translation.note">Note</span></dt>
+        <dd>
+          <span>{{ translation.note }}</span>
+        </dd>
+        <dt><span jhiTranslate="legalisSpaceApp.translation.author">Author</span></dt>
+        <dd>
+          <span>{{ translation.author }}</span>
+        </dd>
+        <dt><span jhiTranslate="legalisSpaceApp.translation.source">Source</span></dt>
+        <dd>
+          <span>{{ translation.source }}</span>
+        </dd>
+        <dt><span jhiTranslate="legalisSpaceApp.translation.official">Official</span></dt>
+        <dd>
+          <span>{{ translation.official }}</span>
+        </dd>
+        <dt><span jhiTranslate="legalisSpaceApp.translation.content">Content</span></dt>
+        <dd>
+          <span>{{ translation.content }}</span>
+        </dd>
+        <dt><span jhiTranslate="legalisSpaceApp.translation.language">Language</span></dt>
+        <dd>
+          <div *ngIf="translation.language">
+            <a [routerLink]="['/language', translation.language?.id, 'view']">{{ translation.language?.name }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="legalisSpaceApp.translation.law">Law</span></dt>
+        <dd>
+          <div *ngIf="translation.law">
+            <a [routerLink]="['/law', translation.law?.id, 'view']">{{ translation.law?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="legalisSpaceApp.translation.treaty">Treaty</span></dt>
+        <dd>
+          <div *ngIf="translation.treaty">
+            <a [routerLink]="['/treaty', translation.treaty?.id, 'view']">{{ translation.treaty?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/translation', translation.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+{
+  "name": "Language",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "translation",
+      "otherEntityRelationshipName": "language",
+      "relationshipName": "translation",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "language",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211030232901"
+}

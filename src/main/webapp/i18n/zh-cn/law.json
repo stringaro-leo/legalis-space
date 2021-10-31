@@ -1,0 +1,32 @@
+{
+  "legalisSpaceApp": {
+    "law": {
+      "home": {
+        "title": "Laws",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "创建新 Law",
+        "createOrEditLabel": "创建或编辑 Law",
+        "notFound": "No Laws found"
+      },
+      "created": "Law {{ param }} 创建成功",
+      "updated": "Law {{ param }} 更新成功",
+      "deleted": "Law {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Law {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Law"
+      },
+      "id": "ID",
+      "description": "Description",
+      "name": "Name",
+      "publicationDate": "Publication Date",
+      "effectiveDate": "Effective Date",
+      "translation": "Translation",
+      "treaty": "Treaty",
+      "law": "Law",
+      "country": "Country",
+      "ref": "Ref"
+    }
+  }
+}

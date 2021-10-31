@@ -1,0 +1,31 @@
+{
+  "legalisSpaceApp": {
+    "translation": {
+      "home": {
+        "title": "Translations",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Translation erstellen",
+        "createOrEditLabel": "Translation erstellen oder bearbeiten",
+        "notFound": "Keine Translations gefunden"
+      },
+      "created": "Translation erstellt mit ID {{ param }}",
+      "updated": "Translation aktualisiert mit ID {{ param }}",
+      "deleted": "Translation gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Translation {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Translation"
+      },
+      "id": "ID",
+      "note": "Note",
+      "author": "Author",
+      "source": "Source",
+      "official": "Official",
+      "content": "Content",
+      "language": "Language",
+      "law": "Law",
+      "treaty": "Treaty"
+    }
+  }
+}

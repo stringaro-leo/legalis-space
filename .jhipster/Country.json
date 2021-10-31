@@ -1,0 +1,43 @@
+{
+  "name": "Country",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "law",
+      "otherEntityRelationshipName": "country",
+      "relationshipName": "law"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "statement",
+      "otherEntityRelationshipName": "country",
+      "relationshipName": "statement"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "treaty",
+      "otherEntityRelationshipName": "country",
+      "relationshipName": "ratifiedCountries"
+    }
+  ],
+  "entityTableName": "country",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211030232900"
+}

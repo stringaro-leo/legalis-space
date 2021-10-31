@@ -44,7 +44,9 @@
     "clientTheme": "lumen",
     "clientThemeVariant": "primary",
     "reactive": false,
-    "enableGradleEnterprise": false
+    "enableGradleEnterprise": false,
+    "entities": ["Country", "Language", "Statement", "Law", "Treaty", "Translation"],
+    "lastLiquibaseTimestamp": 1635636545000
   },
   "git-provider": "GitHub",
   "git-company": "stringaro-leo",

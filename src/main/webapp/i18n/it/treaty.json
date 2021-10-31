@@ -1,0 +1,31 @@
+{
+  "legalisSpaceApp": {
+    "treaty": {
+      "home": {
+        "title": "Treaties",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Genera un nuovo Treaty",
+        "createOrEditLabel": "Genera o modifica un Treaty",
+        "notFound": "No Treaties found"
+      },
+      "created": "&Egrave; stato generato un nuovo Treaty con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Treaty identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Treaty con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Treaty {{ id }}?"
+      },
+      "detail": {
+        "title": "Treaty"
+      },
+      "id": "ID",
+      "description": "Description",
+      "name": "Name",
+      "voteDate": "Vote Date",
+      "effectiveDate": "Effective Date",
+      "statement": "Statement",
+      "translation": "Translation",
+      "country": "Country",
+      "law": "Law"
+    }
+  }
+}

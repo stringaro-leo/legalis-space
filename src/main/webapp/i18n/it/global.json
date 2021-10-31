@@ -7,6 +7,12 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entità",
+        "country": "Country",
+        "language": "Language",
+        "statement": "Statement",
+        "law": "Law",
+        "treaty": "Treaty",
+        "translation": "Translation",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

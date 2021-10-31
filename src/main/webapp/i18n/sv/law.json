@@ -1,0 +1,32 @@
+{
+  "legalisSpaceApp": {
+    "law": {
+      "home": {
+        "title": "Laws",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Skapa en ny Law",
+        "createOrEditLabel": "Skapa eller ändra en Law",
+        "notFound": "No Laws found"
+      },
+      "created": "En ny Law är skapad med id {{ param }}",
+      "updated": "En Law är uppdaterad med id  {{ param }}",
+      "deleted": "En Law är borttagen med id  {{ param }}",
+      "delete": {
+        "question": "Är du säker på att du vill ta bort Law {{ id }}?"
+      },
+      "detail": {
+        "title": "Law"
+      },
+      "id": "ID",
+      "description": "Description",
+      "name": "Name",
+      "publicationDate": "Publication Date",
+      "effectiveDate": "Effective Date",
+      "translation": "Translation",
+      "treaty": "Treaty",
+      "law": "Law",
+      "country": "Country",
+      "ref": "Ref"
+    }
+  }
+}

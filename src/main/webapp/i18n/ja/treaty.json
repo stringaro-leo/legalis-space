@@ -1,0 +1,31 @@
+{
+  "legalisSpaceApp": {
+    "treaty": {
+      "home": {
+        "title": "Treaties",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Treaty を追加",
+        "createOrEditLabel": "Treatyを追加または編集",
+        "notFound": "No Treaties found"
+      },
+      "created": "A new Treaty is created with identifier {{ param }}",
+      "updated": "A Treaty is updated with identifier {{ param }}",
+      "deleted": "A Treaty is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Treaty {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Treaty"
+      },
+      "id": "ID",
+      "description": "Description",
+      "name": "Name",
+      "voteDate": "Vote Date",
+      "effectiveDate": "Effective Date",
+      "statement": "Statement",
+      "translation": "Translation",
+      "country": "Country",
+      "law": "Law"
+    }
+  }
+}

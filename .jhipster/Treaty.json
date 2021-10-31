@@ -1,0 +1,57 @@
+{
+  "name": "Treaty",
+  "fields": [
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "voteDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "effectiveDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "statement",
+      "otherEntityRelationshipName": "treaty",
+      "relationshipName": "statement"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "translation",
+      "otherEntityRelationshipName": "treaty",
+      "relationshipName": "translation"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "country",
+      "otherEntityRelationshipName": "ratifiedCountries",
+      "relationshipName": "country"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "law",
+      "otherEntityRelationshipName": "treaty",
+      "relationshipName": "law"
+    }
+  ],
+  "entityTableName": "treaty",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211030232904"
+}

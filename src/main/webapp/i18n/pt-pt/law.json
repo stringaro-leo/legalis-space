@@ -1,0 +1,32 @@
+{
+  "legalisSpaceApp": {
+    "law": {
+      "home": {
+        "title": "Laws",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Criar novo(a) Law",
+        "createOrEditLabel": "Criar ou editar Law",
+        "notFound": "Nenhum Laws encontrado"
+      },
+      "created": "Um novo Law foi criado com o identificador {{ param }}",
+      "updated": "Law com identificador {{ param }} foi actualizado",
+      "deleted": "Law com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Law {{ id }}?"
+      },
+      "detail": {
+        "title": "Law"
+      },
+      "id": "ID",
+      "description": "Description",
+      "name": "Name",
+      "publicationDate": "Publication Date",
+      "effectiveDate": "Effective Date",
+      "translation": "Translation",
+      "treaty": "Treaty",
+      "law": "Law",
+      "country": "Country",
+      "ref": "Ref"
+    }
+  }
+}

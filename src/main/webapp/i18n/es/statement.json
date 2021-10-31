@@ -1,0 +1,27 @@
+{
+  "legalisSpaceApp": {
+    "statement": {
+      "home": {
+        "title": "Statements",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Statement",
+        "createOrEditLabel": "Crear o editar Statement",
+        "notFound": "Ningún Statements encontrado"
+      },
+      "created": "Un nuevo Statement ha sido creado con el identificador {{ param }}",
+      "updated": "Un Statement ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Statement ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Statement {{ id }}?"
+      },
+      "detail": {
+        "title": "Statement"
+      },
+      "id": "ID",
+      "description": "Description",
+      "title": "Title",
+      "country": "Country",
+      "treaty": "Treaty"
+    }
+  }
+}

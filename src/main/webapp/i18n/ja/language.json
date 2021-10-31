@@ -1,0 +1,26 @@
+{
+  "legalisSpaceApp": {
+    "language": {
+      "home": {
+        "title": "Languages",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Language を追加",
+        "createOrEditLabel": "Languageを追加または編集",
+        "notFound": "No Languages found"
+      },
+      "created": "A new Language is created with identifier {{ param }}",
+      "updated": "A Language is updated with identifier {{ param }}",
+      "deleted": "A Language is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Language {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Language"
+      },
+      "id": "ID",
+      "code": "Code",
+      "name": "Name",
+      "translation": "Translation"
+    }
+  }
+}

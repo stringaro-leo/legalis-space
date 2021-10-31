@@ -1,0 +1,26 @@
+{
+  "legalisSpaceApp": {
+    "language": {
+      "home": {
+        "title": "Languages",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Criar novo(a) Language",
+        "createOrEditLabel": "Criar ou editar Language",
+        "notFound": "Nenhum Languages encontrado"
+      },
+      "created": "Um novo Language foi criado com o identificador {{ param }}",
+      "updated": "Language com identificador {{ param }} foi actualizado",
+      "deleted": "Language com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Language {{ id }}?"
+      },
+      "detail": {
+        "title": "Language"
+      },
+      "id": "ID",
+      "code": "Code",
+      "name": "Name",
+      "translation": "Translation"
+    }
+  }
+}

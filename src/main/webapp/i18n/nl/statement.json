@@ -1,0 +1,27 @@
+{
+  "legalisSpaceApp": {
+    "statement": {
+      "home": {
+        "title": "Statements",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Maak een nieuwe Statement",
+        "createOrEditLabel": "Maak of wijzig een Statement",
+        "notFound": "No Statements found"
+      },
+      "created": "A new Statement is created with identifier {{ param }}",
+      "updated": "A Statement is updated with identifier {{ param }}",
+      "deleted": "A Statement is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Bent u zeker dat u Statement {{ id }} wilt verwijderen?"
+      },
+      "detail": {
+        "title": "Statement"
+      },
+      "id": "ID",
+      "description": "Description",
+      "title": "Title",
+      "country": "Country",
+      "treaty": "Treaty"
+    }
+  }
+}

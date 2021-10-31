@@ -1,0 +1,57 @@
+{
+  "name": "Translation",
+  "fields": [
+    {
+      "fieldName": "note",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "author",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "source",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "official",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "content",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "language",
+      "otherEntityRelationshipName": "translation",
+      "relationshipName": "language",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "law",
+      "otherEntityRelationshipName": "translation",
+      "relationshipName": "law"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "treaty",
+      "otherEntityRelationshipName": "translation",
+      "relationshipName": "treaty"
+    }
+  ],
+  "entityTableName": "translation",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211030232905"
+}

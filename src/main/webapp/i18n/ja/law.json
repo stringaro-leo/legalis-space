@@ -1,0 +1,32 @@
+{
+  "legalisSpaceApp": {
+    "law": {
+      "home": {
+        "title": "Laws",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Law を追加",
+        "createOrEditLabel": "Lawを追加または編集",
+        "notFound": "No Laws found"
+      },
+      "created": "A new Law is created with identifier {{ param }}",
+      "updated": "A Law is updated with identifier {{ param }}",
+      "deleted": "A Law is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Law {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Law"
+      },
+      "id": "ID",
+      "description": "Description",
+      "name": "Name",
+      "publicationDate": "Publication Date",
+      "effectiveDate": "Effective Date",
+      "translation": "Translation",
+      "treaty": "Treaty",
+      "law": "Law",
+      "country": "Country",
+      "ref": "Ref"
+    }
+  }
+}

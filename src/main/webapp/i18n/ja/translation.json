@@ -1,0 +1,31 @@
+{
+  "legalisSpaceApp": {
+    "translation": {
+      "home": {
+        "title": "Translations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Translation を追加",
+        "createOrEditLabel": "Translationを追加または編集",
+        "notFound": "No Translations found"
+      },
+      "created": "A new Translation is created with identifier {{ param }}",
+      "updated": "A Translation is updated with identifier {{ param }}",
+      "deleted": "A Translation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Translation {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Translation"
+      },
+      "id": "ID",
+      "note": "Note",
+      "author": "Author",
+      "source": "Source",
+      "official": "Official",
+      "content": "Content",
+      "language": "Language",
+      "law": "Law",
+      "treaty": "Treaty"
+    }
+  }
+}

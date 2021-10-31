@@ -1,0 +1,27 @@
+{
+  "legalisSpaceApp": {
+    "statement": {
+      "home": {
+        "title": "Statements",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "创建新 Statement",
+        "createOrEditLabel": "创建或编辑 Statement",
+        "notFound": "No Statements found"
+      },
+      "created": "Statement {{ param }} 创建成功",
+      "updated": "Statement {{ param }} 更新成功",
+      "deleted": "Statement {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Statement {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Statement"
+      },
+      "id": "ID",
+      "description": "Description",
+      "title": "Title",
+      "country": "Country",
+      "treaty": "Treaty"
+    }
+  }
+}

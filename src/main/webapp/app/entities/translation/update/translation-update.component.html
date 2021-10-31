@@ -1,0 +1,102 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-translation-heading"
+        data-cy="TranslationCreateUpdateHeading"
+        jhiTranslate="legalisSpaceApp.translation.home.createOrEditLabel"
+      >
+        Create or edit a Translation
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="legalisSpaceApp.translation.note" for="field_note">Note</label>
+          <input type="text" class="form-control" name="note" id="field_note" data-cy="note" formControlName="note" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="legalisSpaceApp.translation.author" for="field_author">Author</label>
+          <input type="text" class="form-control" name="author" id="field_author" data-cy="author" formControlName="author" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="legalisSpaceApp.translation.source" for="field_source">Source</label>
+          <input type="text" class="form-control" name="source" id="field_source" data-cy="source" formControlName="source" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="legalisSpaceApp.translation.official" for="field_official">Official</label>
+          <input type="checkbox" class="form-check" name="official" id="field_official" data-cy="official" formControlName="official" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="legalisSpaceApp.translation.content" for="field_content">Content</label>
+          <textarea class="form-control" name="content" id="field_content" data-cy="content" formControlName="content"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="legalisSpaceApp.translation.language" for="field_language">Language</label>
+          <select class="form-control" id="field_language" data-cy="language" name="language" formControlName="language">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="languageOption.id === editForm.get('language')!.value?.id ? editForm.get('language')!.value : languageOption"
+              *ngFor="let languageOption of languagesCollection; trackBy: trackLanguageById"
+            >
+              {{ languageOption.name }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="legalisSpaceApp.translation.law" for="field_law">Law</label>
+          <select class="form-control" id="field_law" data-cy="law" name="law" formControlName="law">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="lawOption.id === editForm.get('law')!.value?.id ? editForm.get('law')!.value : lawOption"
+              *ngFor="let lawOption of lawsSharedCollection; trackBy: trackLawById"
+            >
+              {{ lawOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="legalisSpaceApp.translation.treaty" for="field_treaty">Treaty</label>
+          <select class="form-control" id="field_treaty" data-cy="treaty" name="treaty" formControlName="treaty">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="treatyOption.id === editForm.get('treaty')!.value?.id ? editForm.get('treaty')!.value : treatyOption"
+              *ngFor="let treatyOption of treatiesSharedCollection; trackBy: trackTreatyById"
+            >
+              {{ treatyOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

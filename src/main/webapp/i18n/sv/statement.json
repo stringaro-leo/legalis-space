@@ -1,0 +1,27 @@
+{
+  "legalisSpaceApp": {
+    "statement": {
+      "home": {
+        "title": "Statements",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Skapa en ny Statement",
+        "createOrEditLabel": "Skapa eller ändra en Statement",
+        "notFound": "No Statements found"
+      },
+      "created": "En ny Statement är skapad med id {{ param }}",
+      "updated": "En Statement är uppdaterad med id  {{ param }}",
+      "deleted": "En Statement är borttagen med id  {{ param }}",
+      "delete": {
+        "question": "Är du säker på att du vill ta bort Statement {{ id }}?"
+      },
+      "detail": {
+        "title": "Statement"
+      },
+      "id": "ID",
+      "description": "Description",
+      "title": "Title",
+      "country": "Country",
+      "treaty": "Treaty"
+    }
+  }
+}

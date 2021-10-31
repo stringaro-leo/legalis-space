@@ -1,0 +1,106 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-treaty-heading" data-cy="TreatyCreateUpdateHeading" jhiTranslate="legalisSpaceApp.treaty.home.createOrEditLabel">
+        Create or edit a Treaty
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="legalisSpaceApp.treaty.description" for="field_description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="legalisSpaceApp.treaty.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="legalisSpaceApp.treaty.voteDate" for="field_voteDate">Vote Date</label>
+          <div class="input-group">
+            <input
+              id="field_voteDate"
+              data-cy="voteDate"
+              type="text"
+              class="form-control"
+              name="voteDate"
+              ngbDatepicker
+              #voteDateDp="ngbDatepicker"
+              formControlName="voteDate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="voteDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="legalisSpaceApp.treaty.effectiveDate" for="field_effectiveDate"
+            >Effective Date</label
+          >
+          <div class="input-group">
+            <input
+              id="field_effectiveDate"
+              data-cy="effectiveDate"
+              type="text"
+              class="form-control"
+              name="effectiveDate"
+              ngbDatepicker
+              #effectiveDateDp="ngbDatepicker"
+              formControlName="effectiveDate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="effectiveDateDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="legalisSpaceApp.treaty.law" for="field_law">Law</label>
+          <select class="form-control" id="field_law" data-cy="law" name="law" formControlName="law">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="lawOption.id === editForm.get('law')!.value?.id ? editForm.get('law')!.value : lawOption"
+              *ngFor="let lawOption of lawsSharedCollection; trackBy: trackLawById"
+            >
+              {{ lawOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+{
+  "legalisSpaceApp": {
+    "language": {
+      "home": {
+        "title": "Languages",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "创建新 Language",
+        "createOrEditLabel": "创建或编辑 Language",
+        "notFound": "No Languages found"
+      },
+      "created": "Language {{ param }} 创建成功",
+      "updated": "Language {{ param }} 更新成功",
+      "deleted": "Language {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Language {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Language"
+      },
+      "id": "ID",
+      "code": "Code",
+      "name": "Name",
+      "translation": "Translation"
+    }
+  }
+}

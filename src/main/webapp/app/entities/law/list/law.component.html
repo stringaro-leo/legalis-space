@@ -1,0 +1,86 @@
+<div>
+  <h2 id="page-heading" data-cy="LawHeading">
+    <span jhiTranslate="legalisSpaceApp.law.home.title">Laws</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="legalisSpaceApp.law.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-law"
+        [routerLink]="['/law/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="legalisSpaceApp.law.home.createLabel"> Create a new Law </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="laws?.length === 0">
+    <span jhiTranslate="legalisSpaceApp.law.home.notFound">No laws found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="laws && laws.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="legalisSpaceApp.law.description">Description</span></th>
+          <th scope="col"><span jhiTranslate="legalisSpaceApp.law.name">Name</span></th>
+          <th scope="col"><span jhiTranslate="legalisSpaceApp.law.publicationDate">Publication Date</span></th>
+          <th scope="col"><span jhiTranslate="legalisSpaceApp.law.effectiveDate">Effective Date</span></th>
+          <th scope="col"><span jhiTranslate="legalisSpaceApp.law.country">Country</span></th>
+          <th scope="col"><span jhiTranslate="legalisSpaceApp.law.ref">Ref</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let law of laws; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/law', law.id, 'view']">{{ law.id }}</a>
+          </td>
+          <td>{{ law.description }}</td>
+          <td>{{ law.name }}</td>
+          <td>{{ law.publicationDate | formatMediumDate }}</td>
+          <td>{{ law.effectiveDate | formatMediumDate }}</td>
+          <td>
+            <div *ngIf="law.country">
+              <a [routerLink]="['/country', law.country?.id, 'view']">{{ law.country?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="law.ref">
+              <a [routerLink]="['/law', law.ref?.id, 'view']">{{ law.ref?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/law', law.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/law', law.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(law)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

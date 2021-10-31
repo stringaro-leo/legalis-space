@@ -1,0 +1,56 @@
+entity Country {
+	code String,
+	name String
+}
+
+entity Language {
+	code String,
+	name String
+}
+
+entity Statement {
+	description String,
+	title String
+}
+
+entity Law {
+	description String,
+	name String,
+    publicationDate LocalDate,
+    effectiveDate LocalDate
+}
+
+entity Treaty {
+	description String,
+	name String,
+    voteDate LocalDate,
+    effectiveDate LocalDate
+}
+
+entity Translation {
+    note String,
+    author String,
+    source String,
+    official Boolean,
+    content TextBlob
+}
+
+enum EntityType {
+    Law, Treaty
+}
+
+relationship OneToOne {
+	Translation to Language
+}
+relationship OneToMany {
+	Country to Law{country},
+	Country to Statement{country},
+	Law to Translation{law},
+	Law to Treaty{law},
+	Law to Law{ref},
+	Treaty to Statement{treaty},
+	Treaty to Translation{treaty},
+	Treaty to Country{ratifiedCountries}
+}
+
+service all with serviceImpl

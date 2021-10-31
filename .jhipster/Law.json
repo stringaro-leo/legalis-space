@@ -1,0 +1,63 @@
+{
+  "name": "Law",
+  "fields": [
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "publicationDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "effectiveDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "translation",
+      "otherEntityRelationshipName": "law",
+      "relationshipName": "translation"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "treaty",
+      "otherEntityRelationshipName": "law",
+      "relationshipName": "treaty"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "law",
+      "otherEntityRelationshipName": "ref",
+      "relationshipName": "law"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "country",
+      "otherEntityRelationshipName": "law",
+      "relationshipName": "country"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "law",
+      "otherEntityRelationshipName": "law",
+      "relationshipName": "ref"
+    }
+  ],
+  "entityTableName": "law",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211030232903"
+}

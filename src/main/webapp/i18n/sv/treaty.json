@@ -1,0 +1,31 @@
+{
+  "legalisSpaceApp": {
+    "treaty": {
+      "home": {
+        "title": "Treaties",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Skapa en ny Treaty",
+        "createOrEditLabel": "Skapa eller ändra en Treaty",
+        "notFound": "No Treaties found"
+      },
+      "created": "En ny Treaty är skapad med id {{ param }}",
+      "updated": "En Treaty är uppdaterad med id  {{ param }}",
+      "deleted": "En Treaty är borttagen med id  {{ param }}",
+      "delete": {
+        "question": "Är du säker på att du vill ta bort Treaty {{ id }}?"
+      },
+      "detail": {
+        "title": "Treaty"
+      },
+      "id": "ID",
+      "description": "Description",
+      "name": "Name",
+      "voteDate": "Vote Date",
+      "effectiveDate": "Effective Date",
+      "statement": "Statement",
+      "translation": "Translation",
+      "country": "Country",
+      "law": "Law"
+    }
+  }
+}
