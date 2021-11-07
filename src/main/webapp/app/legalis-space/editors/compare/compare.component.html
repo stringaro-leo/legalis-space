@@ -1,0 +1,26 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <h2 data-cy="CompareHeading"><span jhiTranslate="legalisSpaceApp.editors.compare.title">Compare</span></h2>
+
+    <hr />
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <h1>{{ message }}</h1>
+
+    <div>Select the law to compare</div>
+    <select [(ngModel)]="law" (ngModelChange)="onLawChange(law)">
+      <ng-container *ngFor="let l of laws">
+        <option [ngValue]="l">{{ l.name }} ({{ l.country?.name }})</option>
+      </ng-container>
+    </select>
+
+    <div *ngIf="law">
+      {{ law | json }}
+    </div>
+
+    <div [froalaEditor]="options"></div>
+  </div>
+</div>

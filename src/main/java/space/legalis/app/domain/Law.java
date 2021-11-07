@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -33,7 +34,8 @@ public class Law implements Serializable {
     @Field("effective_date")
     private LocalDate effectiveDate;
 
-    @DBRef
+    @DBRef(lazy = true)
+    @Lazy(true)
     @Field("translation")
     @JsonIgnoreProperties(value = { "language", "law", "treaty" }, allowSetters = true)
     private Set<Translation> translations = new HashSet<>();
