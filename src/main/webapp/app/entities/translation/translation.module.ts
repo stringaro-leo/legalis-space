@@ -5,9 +5,10 @@ import { TranslationDetailComponent } from './detail/translation-detail.componen
 import { TranslationUpdateComponent } from './update/translation-update.component';
 import { TranslationDeleteDialogComponent } from './delete/translation-delete-dialog.component';
 import { TranslationRoutingModule } from './route/translation-routing.module';
+import { FroalaEditorModule } from 'angular-froala-wysiwyg';
 
 @NgModule({
-  imports: [SharedModule, TranslationRoutingModule],
+  imports: [SharedModule, TranslationRoutingModule, FroalaEditorModule],
   declarations: [TranslationComponent, TranslationDetailComponent, TranslationUpdateComponent, TranslationDeleteDialogComponent],
   entryComponents: [TranslationDeleteDialogComponent],
 })

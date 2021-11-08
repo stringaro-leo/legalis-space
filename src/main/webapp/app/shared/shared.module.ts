@@ -13,9 +13,10 @@ import { SortByDirective } from './sort/sort-by.directive';
 import { SortDirective } from './sort/sort.directive';
 import { ItemCountComponent } from './pagination/item-count.component';
 import { PdfToTextComponent } from './pdf-to-text/pdf-to-text.component';
+import { AngularFileUploaderModule } from 'angular-file-uploader';
 
 @NgModule({
-  imports: [SharedLibsModule],
+  imports: [SharedLibsModule, AngularFileUploaderModule],
   declarations: [
     FindLanguageFromKeyPipe,
     TranslateDirective,

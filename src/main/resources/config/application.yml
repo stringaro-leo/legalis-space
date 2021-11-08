@@ -104,6 +104,12 @@ spring:
   output:
     ansi:
       console-available: true
+  servlet:
+    multipart:
+      enabled: true
+      location: ${java.io.tmpdir}
+      max-file-size: 20MB
+      max-request-size: 100MB
 
 server:
   servlet:

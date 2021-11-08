@@ -16,6 +16,7 @@ import { ILaw } from 'app/entities/law/law.model';
 import { LawService } from 'app/entities/law/service/law.service';
 import { ITreaty } from 'app/entities/treaty/treaty.model';
 import { TreatyService } from 'app/entities/treaty/service/treaty.service';
+import { FroalaEditorDirective } from 'angular-froala-wysiwyg';
 
 @Component({
   selector: 'jhi-translation-update',
@@ -39,6 +40,13 @@ export class TranslationUpdateComponent implements OnInit {
     law: [],
     treaty: [],
   });
+
+  froalaOptions: any = {
+    placeholderText: 'Edit Your Content Here!!!',
+    charCounterCount: false,
+    immediateAngularModelUpdate: true,
+    enter: 2,
+  };
 
   constructor(
     protected dataUtils: DataUtils,
@@ -98,6 +106,12 @@ export class TranslationUpdateComponent implements OnInit {
 
   trackTreatyById(index: number, item: ITreaty): string {
     return item.id!;
+  }
+
+  fillContent(content: string): void {
+    this.editForm.patchValue({
+      content,
+    });
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<ITranslation>>): void {

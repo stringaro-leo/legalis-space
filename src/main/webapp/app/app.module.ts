@@ -12,7 +12,6 @@ import { NgbDateAdapter, NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap'
 // Import all Froala Editor plugins.
 import 'froala-editor/js/plugins.pkgd.min.js';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
-import { AngularFileUploaderModule } from 'angular-file-uploader';
 
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
 import './config/dayjs';
@@ -34,6 +33,7 @@ import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ActiveMenuDirective } from './layouts/navbar/active-menu.directive';
 import { ErrorComponent } from './layouts/error/error.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AngularFileUploaderModule } from 'angular-file-uploader';
 
 @NgModule({
   imports: [

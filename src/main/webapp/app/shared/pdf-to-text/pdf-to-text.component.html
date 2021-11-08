@@ -1,7 +1,8 @@
-<div class="alerts" role="alert">
-  <div *ngFor="let alert of alerts" [ngClass]="setClasses(alert)">
-    <ngb-alert *ngIf="alert.message" [type]="alert.type" (closed)="close(alert)">
-      <pre [innerHTML]="alert.message"></pre>
-    </ngb-alert>
-  </div>
-</div>
+<div role="pdf-to-text">
+  <angular-file-uploader [config]="afuConfig" (fileSelected)="fileSelected($event)" (ApiResponse)="DocUpload($event)">
+  </angular-file-uploader>
+  <!--
+  <label for="pdf-to-text-input">Upload pdf file:</label>
+  <input type="text" id="pdf-to-text-input" #newItem>
+  <button (click)="textContent(newItem.value);$event.preventDefault()">Fill Content</button>
+--></div>
