@@ -1,8 +1,9 @@
 package space.legalis.app.web.rest.extended;
 
 import io.swagger.annotations.Api;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ import org.apache.pdfbox.io.RandomAccessFile;
 import org.apache.pdfbox.pdfparser.PDFParser;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
+import org.fit.pdfdom.PDFDomTree;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -37,6 +39,14 @@ public class PdfToTextResource {
 
     public PdfToTextResource() {}
 
+    private void generateHTMLFromPDF(String filename) throws IOException {
+        PDDocument pdf = PDDocument.load(new File(filename));
+        Writer output = new PrintWriter(filename + ".html", "utf-8");
+        new PDFDomTree().writeText(pdf, output);
+
+        output.close();
+    }
+
     @RequestMapping(value = "/pdf-to-text", method = RequestMethod.POST)
     public List<String> multiplePdfToText(@RequestParam("file") MultipartFile files[]) throws IOException {
         log.debug("REST request to upload one pdf file and return content as text.");
@@ -45,6 +55,10 @@ public class PdfToTextResource {
             for (MultipartFile file : files) {
                 File destFile = new File(uploadDir + "/" + file.getOriginalFilename());
                 file.transferTo(destFile);
+
+                //generateHTMLFromPDF(uploadDir + "/" + file.getOriginalFilename());
+                //String htmlContent = Files.readString(Path.of(uploadDir + "/" + file.getOriginalFilename() + ".html"));
+                //result.add(htmlContent);
 
                 /*
                  * Source: https://www.baeldung.com/pdf-conversions-java
@@ -56,6 +70,7 @@ public class PdfToTextResource {
                 COSDocument cosDoc = parser.getDocument();
                 PDFTextStripper pdfStripper = new PDFTextStripper();
                 PDDocument pdDoc = new PDDocument(cosDoc);
+                pdfStripper.setLineSeparator("<br>");
                 parsedText = pdfStripper.getText(pdDoc);
 
                 result.add(parsedText);

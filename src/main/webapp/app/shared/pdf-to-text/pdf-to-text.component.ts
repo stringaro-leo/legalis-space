@@ -58,6 +58,7 @@ export class PdfToTextComponent implements OnInit {
   DocUpload(response: any): void {
     if (response.status === 200) {
       console.warn('DocUpload: ', response);
+      //this.fillContentEvent.emit(response.body);
       this.fillContentEvent.emit(response.body.join('\n'));
     }
   }

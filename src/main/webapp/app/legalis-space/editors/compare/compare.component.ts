@@ -5,6 +5,7 @@ import { TranslationService } from '../../../entities/translation/service/transl
 import { HttpResponse } from '@angular/common/http';
 import { ITranslation } from '../../../entities/translation/translation.model';
 import { TranslationExtendedService } from '../../../entities/translation/service/extended/translation-extended.service';
+import { Editor } from 'ngx-editor';
 
 @Component({
   selector: 'jhi-compare',
@@ -16,7 +17,11 @@ export class CompareComponent implements OnDestroy, OnInit {
   laws?: ILaw[];
   translations?: ITranslation[];
   message?: string;
-  options?: any = {};
+  editorOptions: any = {
+    placeholderText: 'Edit Your Content Here!!!',
+    charCounterCount: false,
+  };
+  editor: any = {};
 
   constructor(
     protected lawService: LawService,
@@ -59,16 +64,12 @@ export class CompareComponent implements OnDestroy, OnInit {
   ngOnInit(): void {
     this.loadAll();
     this.message = 'Compare translations';
-    this.options = {
-      placeholderText: 'Edit Your Content Here!!!',
-      charCounterCount: false,
-    };
-    console.warn('CompareComponent Init !!!!!!');
-    console.warn(this.options);
+
+    this.editor = new Editor();
+    console.warn(this.editorOptions);
   }
 
   ngOnDestroy(): void {
     this.message = 'bye';
-    console.warn('CompareComponent Destroy !!!!!!');
   }
 }

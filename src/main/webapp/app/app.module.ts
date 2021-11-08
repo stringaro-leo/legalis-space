@@ -9,9 +9,6 @@ import { TranslateModule, TranslateService, TranslateLoader, MissingTranslationH
 import { NgxWebstorageModule, SessionStorageService } from 'ngx-webstorage';
 import * as dayjs from 'dayjs';
 import { NgbDateAdapter, NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
-// Import all Froala Editor plugins.
-import 'froala-editor/js/plugins.pkgd.min.js';
-import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
 import './config/dayjs';
@@ -19,6 +16,7 @@ import { SharedModule } from 'app/shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './home/home.module';
 import { EntityRoutingModule } from './entities/entity-routing.module';
+
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { LegalisSpaceRoutingModule } from './legalis-space/legalis-space-routing.module';
 import { NgbDateDayjsAdapter } from './config/datepicker-adapter';
@@ -34,6 +32,7 @@ import { ActiveMenuDirective } from './layouts/navbar/active-menu.directive';
 import { ErrorComponent } from './layouts/error/error.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AngularFileUploaderModule } from 'angular-file-uploader';
+import { NgxEditorModule } from 'ngx-editor';
 
 @NgModule({
   imports: [
@@ -60,9 +59,8 @@ import { AngularFileUploaderModule } from 'angular-file-uploader';
         useFactory: missingTranslationHandler,
       },
     }),
-    FroalaEditorModule.forRoot(),
-    FroalaViewModule.forRoot(),
     AngularFileUploaderModule,
+    NgxEditorModule,
   ],
   providers: [
     Title,

@@ -39,7 +39,19 @@
 
         <div class="form-group">
           <label class="form-control-label" jhiTranslate="legalisSpaceApp.translation.content" for="field_content">Content</label>
-          <div [froalaEditor]="froalaOptions" name="content" id="field_content" data-cy="content" formControlName="content"></div>
+          <div class="NgxEditor__Wrapper">
+            <ngx-editor-menu [editor]="editorWysiwyg"></ngx-editor-menu>
+            <ngx-editor
+              [editor]="editorWysiwyg"
+              [disabled]="false"
+              [placeholder]="'Type here...'"
+              name="content"
+              id="field_content"
+              data-cy="content"
+              formControlName="content"
+              (ngModelChange)="checkContent($event)"
+            ></ngx-editor>
+          </div>
           <!--
           <textarea class="form-control" name="content" id="field_content" data-cy="content" formControlName="content"></textarea>
           -->

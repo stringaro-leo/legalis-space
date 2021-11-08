@@ -21,6 +21,10 @@
       {{ law | json }}
     </div>
 
-    <div [froalaEditor]="options"></div>
+    <!--    <div [froalaEditor]="options"></div> -->
+    <div class="NgxEditor__Wrapper">
+      <ngx-editor-menu [editor]="editor"></ngx-editor-menu>
+      <ngx-editor [editor]="editor" [ngModel]="message" [disabled]="false" [placeholder]="'Type here...'"></ngx-editor>
+    </div>
   </div>
 </div>
