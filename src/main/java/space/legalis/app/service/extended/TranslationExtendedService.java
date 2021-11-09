@@ -1,5 +1,6 @@
 package space.legalis.app.service.extended;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +21,13 @@ public class TranslationExtendedService {
         this.translationExtendedRepository = translationExtendedRepository;
     }
 
-    public List<Translation> searchTranslationsByTypeAndTypeId(String type, String typeId, String language) {
-        return translationExtendedRepository.searchTranslationsByTypeAndTypeId(type, typeId, language);
+    public List<Translation> searchTranslationsByTypeAndTypeIdAndLanguage(String type, String typeId, String language) {
+        List<Translation> translations = new ArrayList<Translation>();
+        if (type.equals("law")) {
+            translations = translationExtendedRepository.findTranslationsByLaw_Id(typeId);
+        } else if (type.equals("treaty")) {
+            translations = translationExtendedRepository.findTranslationsByTreaty_Id(typeId);
+        }
+        return translations;
     }
 }

@@ -18,34 +18,8 @@ import space.legalis.app.domain.Translation;
  */
 @SuppressWarnings("unused")
 @Repository
-public class TranslationExtendedRepository {
+public interface TranslationExtendedRepository extends MongoRepository<Translation, String> {
+    List<Translation> findTranslationsByLaw_Id(String lawId);
 
-    private final Logger log = LoggerFactory.getLogger(TranslationExtendedRepository.class);
-
-    private final MongoTemplate mongoTemplate;
-
-    public TranslationExtendedRepository(MongoTemplate mongoTemplate) {
-        this.mongoTemplate = mongoTemplate;
-    }
-
-    public List<Translation> searchTranslationsByTypeAndTypeId(String type, String typeId, String language) {
-        Query query = new Query();
-        /**
-        if (type != null && !type.isEmpty()) {
-            query.addCriteria(Criteria.where("type").is(type));
-        }
-        if (typeId != null && !typeId.isEmpty()) {
-            query.addCriteria(Criteria.where("typeId").is(typeId));
-        }
-         */
-        if (language != null && !language.isEmpty()) {
-            //{ "$ref" : "employee", "id" : 1 }
-            //Aggregation aggr = new Aggregation();
-            //Criteria.matchingDocumentStructure()
-
-            query.addCriteria(Criteria.where("language").is(language));
-        }
-        log.debug("Lang: {},Query: {}", language, query.getQueryObject());
-        return mongoTemplate.find(query, Translation.class);
-    }
+    List<Translation> findTranslationsByTreaty_Id(String treatyId);
 }

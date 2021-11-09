@@ -42,15 +42,16 @@ public class TranslationExtendedResource {
      */
     @GetMapping("/translations/search")
     @ResponseBody
-    public List<Law> searchTranslationsByTypeAndTypeId(
+    public List<Translation> searchTranslationsByTypeAndTypeId(
         @RequestParam String type,
         @RequestParam String typeId,
         @RequestParam(required = false) String language
     ) {
         log.debug("REST request to get all Translations for type '{}', type_id '{}', language '{}'", type, typeId, language);
 
-        List<Law> laws = lawService.findAll();
-        return laws;
-        //        return translationExtendedService.searchTranslationsByTypeAndTypeId(type, typeId, language);
+        //List<Law> laws = lawService.findAll();
+        //return laws;
+        List<Translation> translations = translationExtendedService.searchTranslationsByTypeAndTypeIdAndLanguage(type, typeId, language);
+        return translations;
     }
 }
