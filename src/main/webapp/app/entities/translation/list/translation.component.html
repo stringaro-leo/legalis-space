@@ -53,7 +53,7 @@
           <td>{{ translation.author }}</td>
           <td>{{ translation.source }}</td>
           <td>{{ translation.official }}</td>
-          <td>{{ translation.content }}</td>
+          <td>{{ translation.content?.slice(0, 400) }}</td>
           <td>
             <div *ngIf="translation.language">
               <a [routerLink]="['/language', translation.language?.id, 'view']">{{ translation.language?.name }}</a>
