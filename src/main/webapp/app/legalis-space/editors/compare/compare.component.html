@@ -25,7 +25,7 @@
 <div class="row align-items-start justify-content-center editors-wrapper" *ngIf="contents">
   <div *ngFor="let content of contents; let index = index" class="col">
     <div class="NgxEditor__Wrapper" id="content-{{ content.code }}" *ngIf="contents[index].display">
-      <ngx-editor-menu [editor]="content.editor"></ngx-editor-menu>
+      <ngx-editor-menu [editor]="content.editor" [toolbar]="toolbar"></ngx-editor-menu>
       <ngx-editor [editor]="content.editor" [ngModel]="content.translation?.content" [placeholder]="'Type here...'"></ngx-editor>
     </div>
   </div>

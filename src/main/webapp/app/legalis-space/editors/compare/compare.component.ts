@@ -29,7 +29,6 @@ export class CompareComponent implements OnDestroy, OnInit {
     ['text_color', 'background_color'],
     ['align_left', 'align_center', 'align_right', 'align_justify'],
   ];
-  colorPresets: any = ['red', '#FF0000', 'rgb(255, 0, 0)'];
   contents: any = [];
 
   constructor(
