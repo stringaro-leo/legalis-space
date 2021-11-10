@@ -1,47 +1,54 @@
 <div class="row justify-content-center">
   <div class="col-8">
-    <h2 data-cy="CompareHeading"><span jhiTranslate="legalisSpaceApp.editors.compare.title">Compare</span></h2>
+    <h2 data-cy="CompareHeading" style="text-align: center">Compare translations</h2>
     <hr />
     <jhi-alert-error></jhi-alert-error>
     <jhi-alert></jhi-alert>
-    <h1>{{ message }}</h1>
   </div>
 </div>
 
 <div class="row justify-content-center">
-  <div class="col">
-    <select [(ngModel)]="lawLeft" (ngModelChange)="onLawLeftChange(lawLeft)">
-      <option disabled selected value>-- Select a law (left side) --</option>
+  <div class="col-sm-3">
+    <select class="form-control" [(ngModel)]="lawLeft" (ngModelChange)="onLawLeftChange(lawLeft)">
+      <option value disabled selected>-- Select a law (left side) --</option>
       <ng-container *ngFor="let l of laws">
         <option [ngValue]="l">{{ l.name }} ({{ l.country?.name }})</option>
       </ng-container>
     </select>
-    <div *ngIf="lawLeft">
-      <select [(ngModel)]="translationLeft" (ngModelChange)="onTranslationLeftChange(translationLeft)">
-        <option disabled selected value>-- Select a translation (left side) --</option>
-        <ng-container *ngFor="let t of translations">
-          <option [hidden]="t.law?.id !== lawLeft.id" [ngValue]="t">{{ t.law?.name }} [{{ t.language?.name }}]</option>
-        </ng-container>
-      </select>
-    </div>
   </div>
-  <div class="col">
-    <select [(ngModel)]="lawRight" (ngModelChange)="onLawRightChange(lawRight)">
+  <div class="col-sm-3">
+    <select class="form-control" [(ngModel)]="lawRight" (ngModelChange)="onLawRightChange(lawRight)">
       <option disabled selected value>-- Select a law (right side) --</option>
       <ng-container *ngFor="let l of laws">
         <option [ngValue]="l">{{ l.name }} ({{ l.country?.name }})</option>
       </ng-container>
     </select>
-    <div *ngIf="lawRight">
-      <select [(ngModel)]="translationRight" (ngModelChange)="onTranslationRightChange(translationRight)">
+  </div>
+</div>
+<br />
+<div class="row justify-content-center">
+  <div class="col-sm-3">
+    <ng-container *ngIf="lawLeft">
+      <select class="form-control" [(ngModel)]="translationLeft" (ngModelChange)="onTranslationLeftChange(translationLeft)">
+        <option disabled selected value>-- Select a translation (left side) --</option>
+        <ng-container *ngFor="let t of translations">
+          <option [hidden]="t.law?.id !== lawLeft.id" [ngValue]="t">{{ t.law?.name }} [{{ t.language?.name }}]</option>
+        </ng-container>
+      </select>
+    </ng-container>
+  </div>
+  <div class="col-sm-3">
+    <ng-container *ngIf="lawRight">
+      <select class="form-control" [(ngModel)]="translationRight" (ngModelChange)="onTranslationRightChange(translationRight)">
         <option disabled selected value>-- Select a translation (right side) --</option>
         <ng-container *ngFor="let t of translations">
           <option [hidden]="t.law?.id !== lawRight.id" [ngValue]="t">{{ t.law?.name }} [{{ t.language?.name }}]</option>
         </ng-container>
       </select>
-    </div>
+    </ng-container>
   </div>
 </div>
+<br />
 <div class="row align-items-start justify-content-center editors-wrapper" *ngIf="translationLeft || translationRight">
   <div class="col">
     <div class="NgxEditor__Wrapper" id="editor-left" *ngIf="translationLeft">
