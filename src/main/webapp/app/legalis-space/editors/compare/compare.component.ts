@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ILaw } from '../../../entities/law/law.model';
 import { LawService } from '../../../entities/law/service/law.service';
 import { TranslationService } from '../../../entities/translation/service/translation.service';
@@ -11,14 +11,30 @@ import { Editor, Toolbar } from 'ngx-editor';
   selector: 'jhi-compare',
   templateUrl: './compare.component.html',
 })
-export class CompareComponent implements OnDestroy, OnInit {
+export class CompareComponent implements OnInit {
   isLoading = false;
-  checked = false;
-  law: ILaw | null = null;
+
+  lawLeft: ILaw | null = null;
+  lawRight: ILaw | null = null;
   laws?: ILaw[];
-  translations?: ITranslation[];
+
   message?: string;
-  toolbar: Toolbar = [
+
+  translationLeft?: ITranslation | null = null;
+  translationRight?: ITranslation | null = null;
+  translations?: ITranslation[];
+
+  editorConfig: any = {
+    editable: true,
+    spellcheck: false,
+    height: '5rem',
+    minHeight: '2rem',
+    placeholder: 'Enter text here...',
+    translate: 'no',
+  };
+  editorLeft: any = new Editor();
+  editorRight: any = new Editor();
+  editorsToolbarConfig: Toolbar = [
     // default value
     ['bold', 'italic'],
     ['underline', 'strike'],
@@ -29,13 +45,8 @@ export class CompareComponent implements OnDestroy, OnInit {
     ['text_color', 'background_color'],
     ['align_left', 'align_center', 'align_right', 'align_justify'],
   ];
-  contents: any = [];
 
-  constructor(
-    protected lawService: LawService,
-    protected translationExtendedService: TranslationExtendedService,
-    protected translationService: TranslationService
-  ) {}
+  constructor(protected lawService: LawService, protected translationService: TranslationService) {}
 
   loadAll(): void {
     this.isLoading = true;
@@ -49,13 +60,23 @@ export class CompareComponent implements OnDestroy, OnInit {
         this.isLoading = false;
       }
     );
+
+    this.translationService.query().subscribe(
+      (res: HttpResponse<ITranslation[]>) => {
+        this.isLoading = false;
+        this.translations = res.body ?? [];
+      },
+      () => {
+        this.isLoading = false;
+      }
+    );
   }
+  /*
   loadTranslations(id = ''): void {
     this.isLoading = true;
 
     this.translationExtendedService.searchTranslationsByTypeAndTypeId({ type: 'law', typeId: id }).subscribe(
       (res: HttpResponse<ITranslation[]>) => {
-        console.warn(res);
         this.isLoading = false;
         this.contents = [];
         this.translations = res.body ?? [];
@@ -74,40 +95,28 @@ export class CompareComponent implements OnDestroy, OnInit {
       }
     );
   }
-
-  toggleVisibility(index: number): void {
-    //    for (let _i = 0; _i < this.contents.length; _i++) {
-    //      if (this.contents[_i].code === code) {
-    //        console.warn(code + " found.")
-    //        this.contents[_i].display = !this.contents[_i].display;
-    //      }
-    //    }
-    this.contents[index].display = !this.contents[index].display;
-    console.warn(this.contents[index]);
-  }
-
-  onLawChange(law: ILaw | null): void {
-    console.warn('ONCHANGES', law);
-    this.loadTranslations(law?.id);
-  }
-
-  /*
-  onCheckTranslation(value: any): void {
-    console.warn('onCheckTranslation', value);
-  }
-          <input type="checkbox"
-                 name="string"
-                 ng-true-value="OK"
-                 ng-false-value="KO"
-                 [(ngModel)]="translation"
-                 ng-change="onCheckTranslation($event)">
    */
 
-  ngOnInit(): void {
-    this.loadAll();
+  onLawLeftChange(selectedLaw: ILaw | null): void {
+    this.lawLeft = selectedLaw;
+    this.translationLeft = null;
   }
 
-  ngOnDestroy(): void {
-    this.message = 'bye';
+  onLawRightChange(selectedLaw: ILaw | null): void {
+    this.lawRight = selectedLaw;
+    this.translationRight = null;
+  }
+
+  onTranslationLeftChange(selectedTranslation: ITranslation | null | undefined): void {
+    this.translationLeft = selectedTranslation;
+  }
+
+  onTranslationRightChange(selectedTranslation: ITranslation | null | undefined): void {
+    this.translationRight = selectedTranslation;
+  }
+
+  ngOnInit(): void {
+    this.message = 'Compare Laws';
+    this.loadAll();
   }
 }

@@ -5,28 +5,54 @@
     <jhi-alert-error></jhi-alert-error>
     <jhi-alert></jhi-alert>
     <h1>{{ message }}</h1>
-    <div>Select the law to compare</div>
-    <select [(ngModel)]="law" (ngModelChange)="onLawChange(law)">
+  </div>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col">
+    <select [(ngModel)]="lawLeft" (ngModelChange)="onLawLeftChange(lawLeft)">
+      <option disabled selected value>-- Select a law (left side) --</option>
       <ng-container *ngFor="let l of laws">
         <option [ngValue]="l">{{ l.name }} ({{ l.country?.name }})</option>
       </ng-container>
     </select>
-    <div *ngIf="contents">
-      <ul>
-        <li *ngFor="let content of contents; let index = index">
-          <label
-            ><input type="checkbox" name="{{ content.code }}" data-md-icheck (change)="toggleVisibility(index)" />{{ content.code }}</label
-          >
-        </li>
-      </ul>
+    <div *ngIf="lawLeft">
+      <select [(ngModel)]="translationLeft" (ngModelChange)="onTranslationLeftChange(translationLeft)">
+        <option disabled selected value>-- Select a translation (left side) --</option>
+        <ng-container *ngFor="let t of translations">
+          <option [hidden]="t.law?.id !== lawLeft.id" [ngValue]="t">{{ t.law?.name }} [{{ t.language?.name }}]</option>
+        </ng-container>
+      </select>
+    </div>
+  </div>
+  <div class="col">
+    <select [(ngModel)]="lawRight" (ngModelChange)="onLawRightChange(lawRight)">
+      <option disabled selected value>-- Select a law (right side) --</option>
+      <ng-container *ngFor="let l of laws">
+        <option [ngValue]="l">{{ l.name }} ({{ l.country?.name }})</option>
+      </ng-container>
+    </select>
+    <div *ngIf="lawRight">
+      <select [(ngModel)]="translationRight" (ngModelChange)="onTranslationRightChange(translationRight)">
+        <option disabled selected value>-- Select a translation (right side) --</option>
+        <ng-container *ngFor="let t of translations">
+          <option [hidden]="t.law?.id !== lawRight.id" [ngValue]="t">{{ t.law?.name }} [{{ t.language?.name }}]</option>
+        </ng-container>
+      </select>
     </div>
   </div>
 </div>
-<div class="row align-items-start justify-content-center editors-wrapper" *ngIf="contents">
-  <div *ngFor="let content of contents; let index = index" class="col">
-    <div class="NgxEditor__Wrapper" id="content-{{ content.code }}" *ngIf="contents[index].display">
-      <ngx-editor-menu [editor]="content.editor" [toolbar]="toolbar"></ngx-editor-menu>
-      <ngx-editor [editor]="content.editor" [ngModel]="content.translation?.content" [placeholder]="'Type here...'"></ngx-editor>
+<div class="row align-items-start justify-content-center editors-wrapper" *ngIf="translationLeft || translationRight">
+  <div class="col">
+    <div class="NgxEditor__Wrapper" id="editor-left" *ngIf="translationLeft">
+      <ngx-editor-menu [editor]="editorLeft" [toolbar]="editorsToolbarConfig"></ngx-editor-menu>
+      <ngx-editor [editor]="editorLeft" [ngModel]="translationLeft.content" [placeholder]="'Left content'"></ngx-editor>
+    </div>
+  </div>
+  <div class="col">
+    <div class="NgxEditor__Wrapper" id="editor-right" *ngIf="translationRight">
+      <ngx-editor-menu [editor]="editorRight" [toolbar]="editorsToolbarConfig"></ngx-editor-menu>
+      <ngx-editor [editor]="editorRight" [ngModel]="translationRight.content" [placeholder]="'Right content'"></ngx-editor>
     </div>
   </div>
 </div>
