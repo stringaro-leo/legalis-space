@@ -97,4 +97,4 @@ jhipster:
 
 legalis-space:
   pdf-to-text:
-    upload-dir: '/Users/sirus/Presta/legalis-space/data/pdf-to-text'
+    upload-dir: '/Users/DanK/Dev/legalis-space/data/pdf-to-text'

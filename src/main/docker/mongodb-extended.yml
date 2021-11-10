@@ -8,7 +8,7 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - ~/Presta/legalis-space/data/mongodb/:/data/db/
+      - ~/Dev/legalis-space/data/mongodb/:/data/db/
   legalisspace-mongo-express:
     depends_on:
       - "legalisspace-mongodb"
