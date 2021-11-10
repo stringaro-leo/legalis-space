@@ -80,7 +80,7 @@
               [ngValue]="lawOption.id === editForm.get('law')!.value?.id ? editForm.get('law')!.value : lawOption"
               *ngFor="let lawOption of lawsSharedCollection; trackBy: trackLawById"
             >
-              {{ lawOption.id }}
+              {{ lawOption.name }}
             </option>
           </select>
         </div>

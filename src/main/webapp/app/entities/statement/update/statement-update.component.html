@@ -38,7 +38,7 @@
               [ngValue]="countryOption.id === editForm.get('country')!.value?.id ? editForm.get('country')!.value : countryOption"
               *ngFor="let countryOption of countriesSharedCollection; trackBy: trackCountryById"
             >
-              {{ countryOption.id }}
+              {{ countryOption.name }}
             </option>
           </select>
         </div>
@@ -51,7 +51,7 @@
               [ngValue]="treatyOption.id === editForm.get('treaty')!.value?.id ? editForm.get('treaty')!.value : treatyOption"
               *ngFor="let treatyOption of treatiesSharedCollection; trackBy: trackTreatyById"
             >
-              {{ treatyOption.id }}
+              {{ treatyOption.name }}
             </option>
           </select>
         </div>

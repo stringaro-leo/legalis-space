@@ -25,7 +25,7 @@
         <dt><span jhiTranslate="legalisSpaceApp.country.ratifiedCountries">Ratified Countries</span></dt>
         <dd>
           <div *ngIf="country.ratifiedCountries">
-            <a [routerLink]="['/treaty', country.ratifiedCountries?.id, 'view']">{{ country.ratifiedCountries?.id }}</a>
+            <a [routerLink]="['/treaty', country.ratifiedCountries?.id, 'view']">{{ country.ratifiedCountries?.name }}</a>
           </div>
         </dd>
       </dl>

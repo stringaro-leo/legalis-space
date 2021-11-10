@@ -53,12 +53,12 @@
           <td>{{ law.effectiveDate | formatMediumDate }}</td>
           <td>
             <div *ngIf="law.country">
-              <a [routerLink]="['/country', law.country?.id, 'view']">{{ law.country?.id }}</a>
+              <a [routerLink]="['/country', law.country?.id, 'view']">{{ law.country?.name }}</a>
             </div>
           </td>
           <td>
             <div *ngIf="law.ref">
-              <a [routerLink]="['/law', law.ref?.id, 'view']">{{ law.ref?.id }}</a>
+              <a [routerLink]="['/law', law.ref?.id, 'view']">{{ law.ref?.name }}</a>
             </div>
           </td>
           <td class="text-right">

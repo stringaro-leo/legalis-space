@@ -25,13 +25,13 @@
         <dt><span jhiTranslate="legalisSpaceApp.statement.country">Country</span></dt>
         <dd>
           <div *ngIf="statement.country">
-            <a [routerLink]="['/country', statement.country?.id, 'view']">{{ statement.country?.id }}</a>
+            <a [routerLink]="['/country', statement.country?.id, 'view']">{{ statement.country?.name }}</a>
           </div>
         </dd>
         <dt><span jhiTranslate="legalisSpaceApp.statement.treaty">Treaty</span></dt>
         <dd>
           <div *ngIf="statement.treaty">
-            <a [routerLink]="['/treaty', statement.treaty?.id, 'view']">{{ statement.treaty?.id }}</a>
+            <a [routerLink]="['/treaty', statement.treaty?.id, 'view']">{{ statement.treaty?.name }}</a>
           </div>
         </dd>
       </dl>

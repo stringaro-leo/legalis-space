@@ -52,7 +52,7 @@
           <td>{{ treaty.effectiveDate | formatMediumDate }}</td>
           <td>
             <div *ngIf="treaty.law">
-              <a [routerLink]="['/law', treaty.law?.id, 'view']">{{ treaty.law?.id }}</a>
+              <a [routerLink]="['/law', treaty.law?.id, 'view']">{{ treaty.law?.name }}</a>
             </div>
           </td>
           <td class="text-right">

@@ -61,12 +61,12 @@
           </td>
           <td>
             <div *ngIf="translation.law">
-              <a [routerLink]="['/law', translation.law?.id, 'view']">{{ translation.law?.id }}</a>
+              <a [routerLink]="['/law', translation.law?.id, 'view']">{{ translation.law?.name }}</a>
             </div>
           </td>
           <td>
             <div *ngIf="translation.treaty">
-              <a [routerLink]="['/treaty', translation.treaty?.id, 'view']">{{ translation.treaty?.id }}</a>
+              <a [routerLink]="['/treaty', translation.treaty?.id, 'view']">{{ translation.treaty?.name }}</a>
             </div>
           </td>
           <td class="text-right">

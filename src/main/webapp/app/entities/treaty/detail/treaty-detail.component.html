@@ -33,7 +33,7 @@
         <dt><span jhiTranslate="legalisSpaceApp.treaty.law">Law</span></dt>
         <dd>
           <div *ngIf="treaty.law">
-            <a [routerLink]="['/law', treaty.law?.id, 'view']">{{ treaty.law?.id }}</a>
+            <a [routerLink]="['/law', treaty.law?.id, 'view']">{{ treaty.law?.name }}</a>
           </div>
         </dd>
       </dl>
